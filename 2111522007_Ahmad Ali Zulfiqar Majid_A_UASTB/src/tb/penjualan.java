@@ -15,9 +15,9 @@ public class penjualan extends App implements bakso {
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
     float beli;
-    float belipm = 0;
-    float belipt = 0;
-    float belipx = 0;
+    float beli01 = 0;
+    float beli02 = 0;
+    float beli03 = 0;
 
     int harga, no, ino;
     String admin, tgl, url, sql;
@@ -73,7 +73,7 @@ public class penjualan extends App implements bakso {
     // Proses ulang Matematika
 
     public float jualBakso(int iharga) {
-        beli = ((float) iharga / 6500);
+        beli = ((float) iharga / 7000);
         return beli;
     }
 
@@ -101,30 +101,30 @@ public class penjualan extends App implements bakso {
             System.out.print("Harga : ");
             int iharga = i.nextInt();
             if (jenis == 1) {
-                belipm = jualBakso(iharga);
-                belipt = 0;
-                belipx = 0;
+                beli01 = jualBakso(iharga);
+                beli02 = 0;
+                beli03 = 0;
                 sql = "INSERT INTO penjualan_bakso (No, Tanggal, Admin, Kuantitas_Bakso, Kuantitas_Pangsit, Kuantitas_Soto, Total_Harga) VALUES ('"
-                        + noFaktur(iharga) + "','" + tanggal(iharga) + "','" + admin(iadm) + "','" + belipm + "','"
-                        + belipt + "','" + belipx + "','" + harga(iharga) + "')";
+                        + noFaktur(iharga) + "','" + tanggal(iharga) + "','" + admin(iadm) + "','" + beli01 + "','"
+                        + beli02 + "','" + beli03 + "','" + harga(iharga) + "')";
                 statement.executeUpdate(sql);
                 System.out.println("Data dengan nomor faktur " + no + " berhasil ditambahkan!");
             } else if (jenis == 2) {
-                belipt = jualPangsit(iharga);
-                belipm = 0;
-                belipx = 0;
+                beli02 = jualPangsit(iharga);
+                beli01 = 0;
+                beli03 = 0;
                 sql = "INSERT INTO penjualan_bakso (No, Tanggal, Admin, Kuantitas_Bakso, Kuantitas_Pangsit, Kuantitas_Soto, Total_Harga) VALUES ('"
-                        + noFaktur(iharga) + "','" + tanggal(iharga) + "','" + admin(iadm) + "','" + belipm + "','"
-                        + belipt + "','" + belipx + "','" + harga(iharga) + "')";
+                        + noFaktur(iharga) + "','" + tanggal(iharga) + "','" + admin(iadm) + "','" + beli01 + "','"
+                        + beli02 + "','" + beli03 + "','" + harga(iharga) + "')";
                 statement.executeUpdate(sql);
                 System.out.println("Data dengan nomor faktur " + no + " berhasil ditambahkan!");
             } else if (jenis == 3) {
-                belipx = jualSoto(iharga);
-                belipm = 0;
-                belipt = 0;
+                beli03 = jualSoto(iharga);
+                beli01 = 0;
+                beli02 = 0;
                 sql = "INSERT INTO penjualan_bakso (No, Tanggal, Admin, Kuantitas_Bakso, Kuantitas_Pangsit, Kuantitas_Soto, Total_Harga) VALUES ('"
-                        + noFaktur(iharga) + "','" + tanggal(iharga) + "','" + admin(iadm) + "','" + belipm + "','"
-                        + belipt + "','" + belipx + "','" + harga(iharga) + "')";
+                        + noFaktur(iharga) + "','" + tanggal(iharga) + "','" + admin(iadm) + "','" + beli01 + "','"
+                        + beli02 + "','" + beli03 + "','" + harga(iharga) + "')";
                 statement.executeUpdate(sql);
                 System.out.println("Data dengan nomor faktur " + no + " berhasil ditambahkan!");
 
